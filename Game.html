@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coffee Shop - Interactive Game</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Edu+TAS+Beginner:wght@600&family=Inter:wght@200;300&family=Kodchasan:wght@600&family=Syncopate&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+    <style>
+        body {
+            background-color: #FAEBD7;
+        }
+        .container {
+            margin-top: 100px;
+        }
+
+        .nav-link {
+            font-family: 'Kodchasan', sans-serif;
+            margin-right: 40px;
+            margin-left: 20px;
+            font-size: 20px;
+        }
+        .navbar {
+            position: absolute;
+            top: 0px;
+            width: 100%;
+        }
+
+        .navbar-brand {
+            font-size: 27px;
+            font-family: 'Kodchasan', sans-serif;
+            margin-left: 50px;
+        }
+        .container {
+            margin-bottom: 50px;
+        }
+        .card {
+            margin-bottom: 100px;
+        }
+
+        .btn:hover {
+            background-color: #FFF8DC;
+            color: black;
+            transform: scale(1.1);
+            transition: transform 0.3s;
+        }
+        .col-md-6 {
+            text-align: left;
+            font-family: 'Kodchasan', sans-serif;
+            font-size: 70px;
+            margin-top: 100px;
+        }
+
+        .puzzle-container {
+            margin-left: 180px;
+            background-color: #FFF;
+            padding: 20px;
+            border: 1px solid #CCC;
+            border-radius: 5px;
+            text-align: center;
+            width: 800px;
+            height:500px;
+        }
+
+        .puzzle-piece {
+            background-color: #007BFF;
+            color: #FFF;
+            padding: 20px;
+            border: 1px solid #0056b3;
+            border-radius: 5px;
+            display: inline-block;
+            margin: 10px;
+            cursor: pointer;
+
+        }
+
+        .puzzle-dropzone {
+            background-color: #F0AD4E;
+            color: #FFF;
+            padding: 40px;
+            border: 2px dashed #B85C00;
+            border-radius: 10px;
+            display: inline-block;
+            margin: 10px;
+        }
+
+        .win-message {
+            font-size: 24px;
+            color: green;
+            display: none;
+        }
+
+        .lose-message {
+            font-size: 24px;
+            color: red;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+<header>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">Coffee Shop</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="dropdown" style="margin-left:50px;">
+            <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Explore
+            </a>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                <a class="dropdown-item" href="#">Game</a>
+                <a class="dropdown-item" href="Contact.html">Contact</a>
+            </div>
+        </div>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="Menu.html">Menu</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="AboutUs.html">About Us</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="Contact.html">Contact</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</header>
+<section class="container">
+    <h1 style="text-align:center; font-family: 'Kodchasan', sans-serif; margin-bottom:50px;" >Interactive Puzzle Game</h1>
+    <div class="row" style="margin-bottom:400px;">
+            <div class="puzzle-container">
+                <p>List types of coffee at the lowest prices:</p>
+                <div class="puzzle-dropzone" id="dropzone1"></div>
+                <div class="puzzle-dropzone" id="dropzone2"></div>
+                <div class="puzzle-dropzone" id="dropzone3"></div><br>
+                <div class="puzzle-piece" id="piece1" draggable="true" data-order="1">Caramel Macchiato</div>
+                <div class="puzzle-piece" id="piece2" draggable="true" data-order="2">Mocha</div>
+                <div class="puzzle-piece" id="piece3" draggable="true" data-order="3">Iced Latte</div>
+                <div class="win-message">You win! Puzzle is solved.</div>
+                <div class="lose-message">You lose! Incorrect order.</div>
+            </div>
+
+    </div>
+</section>
+
+<footer class="container-fluid bg-light text-center pt-4 pb-4">
+    <p style="font-family: 'Kodchasan', sans-serif;">&copy; 2023 Coffee Shop</p>
+</footer>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<script>
+    const puzzlePieces = document.querySelectorAll('.puzzle-piece');
+    const dropzones = document.querySelectorAll('.puzzle-dropzone');
+    const winMessage = document.querySelector('.win-message');
+    const loseMessage = document.querySelector('.lose-message');
+
+    puzzlePieces.forEach(piece => {
+        piece.addEventListener('dragstart', dragStart);
+        piece.addEventListener('dragend', dragEnd);
+    });
+
+    dropzones.forEach(dropzone => {
+        dropzone.addEventListener('dragover', dragOver);
+        dropzone.addEventListener('dragenter', dragEnter);
+        dropzone.addEventListener('dragleave', dragLeave);
+        dropzone.addEventListener('drop', dragDrop);
+    });
+
+    function dragStart() {
+        this.classList.add('dragging');
+    }
+
+    function dragEnd() {
+        this.classList.remove('dragging');
+        checkOrder();
+    }
+
+    function dragOver(e) {
+        e.preventDefault();
+    }
+
+    function dragEnter(e) {
+        e.preventDefault();
+        this.classList.add('hovered');
+    }
+
+    function dragLeave() {
+        this.classList.remove('hovered');
+    }
+
+    function dragDrop() {
+        this.classList.remove('hovered');
+        const piece = document.querySelector('.dragging');
+        this.appendChild(piece);
+    }
+
+    function checkOrder() {
+        const orderedPieces = Array.from(document.querySelectorAll('.puzzle-dropzone')).map(dropzone => dropzone.querySelector('.puzzle-piece').getAttribute('data-order'));
+        const isCorrectOrder = orderedPieces.every((order, index) => parseInt(order) === index + 1);
+
+        if (isCorrectOrder) {
+            winMessage.style.display = 'block';
+            loseMessage.style.display = 'none';
+        } else {
+            winMessage.style.display = 'none';
+            loseMessage.style.display = 'block';
+        }
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Edu+TAS+Beginner:wght@600&family=Inter:wght@200;300&family=Kodchasan:wght@600&family=Syncopate&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-color: #FAEBD7;
+        }
+        .container {
+            margin-top: 20px;
+        }
+        .meet-our-team-heading {
+            transition: transform 0.3s, font-size 0.3s;
+        }
+
+        .meet-our-team-heading:hover {
+            transform: scale(1.1) rotate(360deg);
+            color: #8B0000;
+        }
+        .nav-link{
+            font-family: 'Kodchasan', sans-serif;
+            margin-right: 40px;
+            margin-left:20px;
+            font-size: 20px;
+
+        }
+        .navbar{
+            position: absolute;
+            top: 0px;
+            width: 100%;
+
+        }
+
+        .navbar-brand{
+            font-size: 27px;
+            font-family: 'Kodchasan', sans-serif;
+            margin-left: 50px;
+        }
+        .container{
+            margin-top: 150px;
+        }
+        .card{
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .btn:hover {
+            background-color: #FFF8DC;
+            color: black;
+            transform: scale(1.1);
+            transition: transform 0.3s;;
+        }
+
+    </style>
+</head>
+<body>
+<header>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="CoffeeShop.html">Coffee Shop</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="dropdown" style="margin-left:50px;">
+            <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Explore
+            </a>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                <a class="dropdown-item" href="Game.html">Game</a>
+                <a class="dropdown-item" href="Contact.html">Contact</a>
+            </div>
+        </div>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="CoffeeShop.html">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="Menu.html">Menu</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="AboutUs.html" >About Us</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</header>
+<section class="container">
+    <h1>About Us</h1>
+    <p>We are passionate about coffee and committed to providing the best coffee experience to our customers. Our team of skilled baristas carefully selects and prepares the finest coffee beans from around the world.</p>
+    <p>Our mission is to create a cozy and welcoming atmosphere for you to enjoy your favorite coffee blends and treats. We take pride in serving you with a smile and ensuring you have a memorable coffee experience.</p>
+</section>
+<section class="container">
+    <h2 class="meet-our-team-heading" style="text-align:center; margin-bottom: 50px;font-family: 'Kodchasan', sans-serif;">Meet Our Team</h2>
+    <div class="row">
+        <div class="col-md-4">
+            <div class="card" >
+                <img src="barista.jpg" class="card-img-top" alt="Barista 1" height="250">
+                <div class="card-body">
+                    <h5 class="card-title">Johnny Depp</h5>
+                    <p class="card-text">Head Barista</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card">
+                <img src="barista1.png" class="card-img-top" alt="Barista 2" height="250">
+                <div class="card-body">
+                    <h5 class="card-title">Dwayne Johnson</h5>
+                    <p class="card-text">Barista</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card">
+                <img src="barista2.webp" class="card-img-top" alt="Barista 3" height="250">
+                <div class="card-body">
+                    <h5 class="card-title">Jeniffer Lopez</h5>
+                    <p class="card-text">Barista</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<a href="#" id = "play-sound-button" class="btn btn-primary" style="width:300px; margin-left:573px; margin-bottom: 60px; margin-top: 50px;">Visit Us</a>
+
+<footer class="container-fluid bg-light text-center pt-4 pb-4">
+    <h3>Coffee Shop</h3>
+    <p>&copy; 2023 Coffee Shop</p>
+</footer>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script>
+        const aboutSection = document.querySelector('.container');
+        aboutSection.addEventListener('mouseover', () => {
+            aboutSection.style.backgroundColor = '#e9e9e9';
+        });
+        aboutSection.addEventListener('mouseout', () => {
+            aboutSection.style.backgroundColor = '';
+        });
+
+        const audio = new Audio('coffee_shop_sound.mp3');
+        audio.play();
+
+        const audioElement = new Audio('coffeeshopsound.mp3');
+
+        const playSoundButton = document.querySelector('#play-sound-button');
+        playSoundButton.addEventListener('click', () => {
+            audioElement.play();
+        });
+
+        const Button = document.querySelectorAll('.btn-primary');
+        let fadeIn = true;
+
+        function animateButton() {
+            const opacity = fadeIn ? 1 : 0;
+            Button.forEach(card => {
+                card.style.opacity = opacity;
+            });
+            fadeIn = !fadeIn;
+            setTimeout(animateButton, 1000); // 1 second delay
+        }
+
+        animateButton();
+
+        const meetOurTeamHeading = document.querySelector('.meet-our-team-heading');
+
+
+
+        meetOurTeamHeading.addEventListener('mouseout', () => {
+            meetOurTeamHeading.style.backgroundColor = ''; // Restore original background color
+        });
+    </script>
+</body>
+</html>
